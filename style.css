@@ -1,0 +1,20 @@
+/* 기존 스타일 하단에 추가 */
+.todo-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.todo-item.completed span {
+    text-decoration: line-through;
+    color: #888;
+}
+
+.todo-item span {
+    flex: 1;
+}
+
+input[type="checkbox"] {
+    cursor: pointer;
+}
