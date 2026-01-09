@@ -1,10 +1,25 @@
-// NOH TAEMIN Portfolio Management
 document.addEventListener('DOMContentLoaded', () => {
-    console.log("Portfolio optimized for visual delivery.");
-    
-    // 이미지가 비어있을 때 콘솔에 알림 (실제 이미지 교체 시 확인용)
-    const mediaItems = document.querySelectorAll('.visual-placeholder');
-    if (mediaItems.length > 0) {
-        console.log(`${mediaItems.length}개의 미디어 공간이 준비되어 있습니다.`);
-    }
+    const hoverImages = document.querySelectorAll('.hover-gif');
+
+    hoverImages.forEach(img => {
+        // 기본 썸네일(정지 이미지) 주소 저장
+        const staticSrc = img.src;
+        // 호버 시 바뀔 GIF 주소 가져오기
+        const hoverSrc = img.getAttribute('data-hover');
+
+        // 이미지의 부모 요소(컨테이너)에 이벤트 연결
+        const container = img.closest('.thumb-container');
+
+        if (container && hoverSrc) {
+            container.addEventListener('mouseenter', () => {
+                img.src = hoverSrc;
+            });
+
+            container.addEventListener('mouseleave', () => {
+                img.src = staticSrc;
+            });
+        }
+    });
+
+    console.log("NOH TAEMIN Portfolio: Interactive GIF loading ready.");
 });
