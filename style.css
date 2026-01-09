@@ -1,20 +1,71 @@
-/* 기존 스타일 하단에 추가 */
-.todo-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    width: 100%;
+/* Web Font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800&display=swap');
+
+:root {
+    --bg-color: #0a0a0a;
+    --card-bg: #161616;
+    --text-main: #ffffff;
+    --text-sub: #888888;
+    --accent: #3355ff; /* 은은한 포인트 컬러 */
 }
 
-.todo-item.completed span {
-    text-decoration: line-through;
-    color: #888;
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { 
+    background-color: var(--bg-color); 
+    color: var(--text-main); 
+    font-family: 'Inter', -apple-system, sans-serif;
+    word-break: keep-all;
 }
 
-.todo-item span {
-    flex: 1;
+/* Header */
+header {
+    padding: 40px 5%;
+    position: sticky; top: 0; background: rgba(10,10,10,0.8);
+    backdrop-filter: blur(10px); z-index: 100;
+}
+.inner { display: flex; justify-content: space-between; align-items: center; }
+.logo { font-size: 1.1rem; font-weight: 800; letter-spacing: 1px; }
+.contact a { color: var(--text-sub); text-decoration: none; font-size: 0.9rem; }
+
+/* Hero Section */
+.hero { padding: 15vh 5% 10vh; }
+.tag { color: var(--accent); font-weight: 700; font-size: 0.8rem; letter-spacing: 2px; }
+.hero h2 { font-size: clamp(2.5rem, 8vw, 5rem); font-weight: 800; line-height: 1.1; margin-top: 20px; }
+
+/* Works Grid */
+.works { padding: 0 5% 100px; }
+.work-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; }
+.work-item.feature { grid-column: span 2; }
+
+.visual-placeholder {
+    width: 100%; height: auto; aspect-ratio: 16 / 9;
+    background-color: var(--card-bg);
+    border: 1px solid #222;
+    display: flex; align-items: center; justify-content: center;
+    color: #333; font-weight: 800; font-size: 2rem;
 }
 
-input[type="checkbox"] {
-    cursor: pointer;
+.work-info { margin-top: 15px; }
+.work-info h3 { font-size: 1.2rem; margin-bottom: 5px; }
+.work-info p { color: var(--text-sub); font-size: 0.9rem; }
+
+/* Profile Table */
+.profile { padding: 100px 5%; border-top: 1px solid #222; display: flex; }
+.section-title { width: 30%; color: var(--text-sub); font-size: 0.8rem; letter-spacing: 2px; }
+.profile-content { width: 70%; }
+
+table { width: 100%; border-collapse: collapse; }
+th, td { padding: 20px 0; border-bottom: 1px solid #222; text-align: left; vertical-align: top; }
+th { width: 30%; color: var(--text-sub); font-weight: 400; font-size: 0.9rem; }
+td { font-size: 1.1rem; color: #ccc; }
+
+footer { padding: 50px 5%; text-align: left; border-top: 1px solid #222; color: #444; font-size: 0.8rem; }
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .work-grid { grid-template-columns: 1fr; }
+    .work-item.feature { grid-column: span 1; }
+    .profile { flex-direction: column; }
+    .section-title { margin-bottom: 30px; }
+    .profile-content { width: 100%; }
 }
